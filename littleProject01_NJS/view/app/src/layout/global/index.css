@@ -1,0 +1,15 @@
+/************CSS RESET**********/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*********Utils***********/
+.width-7-precent{
+    width: 7%;
+}
+.border-radius-32{
+    border-radius: 2rem;
+}

@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
-
+import './layout/global/index.css'
 
 function App() {
 
