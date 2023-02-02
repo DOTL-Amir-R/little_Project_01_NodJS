@@ -7,8 +7,23 @@
 
 
 /*********Utils***********/
-.margin-top-155{
-    margin-top: 9.6875rem;
+.z-index-6{
+    z-index: 6;
+}
+.over-flow-hidden{
+    overflow: hidden;
+}
+.height-100vh{
+    height: 100vh;
+}
+.margin-top-100{
+    margin-top: 6.25rem;
+}
+.align-self-end{
+    align-self: end;
+}
+.margin-right-155{
+    margin-right: 9.6875rem;
 }
 .justify-center{
     justify-content: center;
@@ -55,4 +70,19 @@
 }
 .font-weight-bold{
     font-weight: bold;
+}
+
+
+/***************COMPONENTS***************/
+.pink-button{
+    background-color: #F45CB8;
+    color: #fafafa;
+    border-radius: .5rem;
+    border: #ff0099 1px solid;
+    transition: all .6s;
+    padding: 0.7rem 2rem;
+}
+.pink-button:hover{
+    color: #F45CB8;
+    background-color: #be20a415;
 }
