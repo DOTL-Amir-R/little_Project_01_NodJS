@@ -4,10 +4,10 @@ import './index.css'
 
 export  function Profile() {
     return(
-        <div>
-            <div className="icon-profile-container">
+        <div className='display-flex gap-155 justify-center margin-top-155'>
+            <div className="icon-profile-container display-flex items-center flex-direction-col">
                 <img className='user-profile' src={testProfile} alt="firstIcon" />
-                <img className='border-radius-32 width-7-precen' src={companyLogo} alt="company logo" />
+                <img className='company-main-logo border-radius-19' src={companyLogo} alt="company logo" />
             </div>
             <div className='info-text-container'>
                 <div>

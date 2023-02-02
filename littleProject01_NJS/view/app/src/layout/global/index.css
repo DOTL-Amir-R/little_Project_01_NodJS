@@ -7,9 +7,27 @@
 
 
 /*********Utils***********/
+.margin-top-155{
+    margin-top: 9.6875rem;
+}
+.justify-center{
+    justify-content: center;
+}
+.gap-155{
+    gap: 9.6875rem;
+}
 .width-7-precent{
     width: 7%;
 }
-.border-radius-32{
-    border-radius: 2rem;
+.border-radius-19{
+    border-radius: 1.2rem;
+}
+.display-flex{
+    display: flex;
+}
+.items-center{
+    align-items: center;
+}
+.flex-direction-col{
+    flex-direction: column;
 }
