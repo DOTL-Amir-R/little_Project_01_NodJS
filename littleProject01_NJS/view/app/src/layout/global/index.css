@@ -7,6 +7,12 @@
 
 
 /*********Utils***********/
+.width-100-percent{
+    width: 100%;
+}
+.gap-16{
+    gap: 1rem;
+}
 .z-index-6{
     z-index: 6;
 }
@@ -43,6 +49,12 @@
 .items-center{
     align-items: center;
 }
+.items-end{
+    align-items: flex-end;
+}
+.items-start{
+    align-items: flex-start;
+}
 .flex-direction-col{
     flex-direction: column;
 }
@@ -51,6 +63,9 @@
 }
 .padding-top-16{
     padding-top: 1rem;
+}
+.padd-8{
+    padding: .5rem;
 }
 .padding-bot-16{
     padding-bottom: 1rem;

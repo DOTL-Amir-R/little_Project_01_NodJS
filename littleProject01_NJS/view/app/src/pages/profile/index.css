@@ -1,3 +1,11 @@
+.hex-color-changer .react-colorful {
+    width: 120px;
+    height: 120px;
+}
+.hex-color-changer  .react-colorful__hue {
+    height: 20px;
+}
+
 .main-container{
     position: fixed;
     z-index: 6;
@@ -11,12 +19,12 @@
     z-index: 7;
 }
 .change-info-inputs-container{
-    padding: 0rem 11rem;
-    background: aqua;
+    padding: 1rem 1rem;
+    background: #fafafa;
     position: absolute;
     width: 88%;
     left: 5rem;
-    top: 7rem;
+    top: 0rem;
     z-index: 8;
 }
 .box-test02::before{
@@ -73,6 +81,11 @@
     border: 1px solid red;
     content: '';
     display: block;
+}
+.first-profile{
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
 }
 .user-profile{
     width: 15rem;

@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@djthoms/pretty-checkbox": "^3.1.0",
+    "pretty-checkbox-react": "^3.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-colorful": "^5.6.1",
+    "react-dom": "^18.2.0",
+    "react-input-colorpicker": "^1.0.13"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
