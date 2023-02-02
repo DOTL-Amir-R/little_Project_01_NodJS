@@ -31,3 +31,28 @@
 .flex-direction-col{
     flex-direction: column;
 }
+.padding-bot-32{
+    padding-bottom: 2rem;
+}
+.padding-top-16{
+    padding-top: 1rem;
+}
+.padding-bot-16{
+    padding-bottom: 1rem;
+}
+.border-bot-1px-black{
+    border-bottom: 1px solid #000000;
+}
+/***TypoGraphi*****/
+.font-size-22{
+    font-size: 1.4rem;
+}
+.font-weight-400{
+    font-weight: 400;
+}
+.font-size-32{
+    font-size: 2rem;
+}
+.font-weight-bold{
+    font-weight: bold;
+}
