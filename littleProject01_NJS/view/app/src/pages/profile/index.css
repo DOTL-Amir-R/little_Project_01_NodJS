@@ -1,0 +1,10 @@
+.box-test::after{
+    padding: 1rem;
+    background: red;
+    width: 30rem;
+    rotate: 30deg;
+    margin: 0rem 0rem 0rem 0rem;
+    border: 1px solid red;
+    content: '';
+    display: block;
+}
