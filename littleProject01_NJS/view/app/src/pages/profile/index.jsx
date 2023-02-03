@@ -78,6 +78,13 @@ const ThirdVerticlLine = styled.div`
 `;
 
 export function Profile() {
+  const [userDataArray,setUserDataArray]=useState({
+    username:'',
+    number:'',
+    email:'',
+    website:'',
+    addrese:''
+});
   const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
   const [state, setState] = useState(false);
@@ -115,26 +122,31 @@ export function Profile() {
             className="width-100-percent padd-8"
             placeholder="username"
             type="text"
+            onChange={(e)=>{(userDataArray.username= e.target.value ,console.log(userDataArray) )}}
           />
           <input
             className="width-100-percent padd-8"
             placeholder="number"
             type="text"
+            onChange={(e)=>{(userDataArray.number= e.target.value ,console.log(userDataArray) )}}
           />
           <input
             className="width-100-percent padd-8"
             placeholder="email"
             type="text"
+            onChange={(e)=>{(userDataArray.email= e.target.value ,console.log(userDataArray) )}}
           />
           <input
             className="width-100-percent padd-8"
             placeholder="website"
             type="text"
+            onChange={(e)=>{(userDataArray.website= e.target.value ,console.log(userDataArray) )}}
           />
           <input
             className="width-100-percent padd-8"
             placeholder="addrese"
             type="text"
+            onChange={(e)=>{(userDataArray.addrese= e.target.value ,console.log(userDataArray) )}}
           />
           <div className="display-flex">
             <figure>
@@ -159,9 +171,10 @@ export function Profile() {
             className="pink-button width-100-percent"
             onClick={() => {
               setSave(!ifSaved),
-                setVerifyPrevColor((verifyPrevColor = true)),
-                console.log(verifyPrevColor),
-                setPreColor(color);
+              setVerifyPrevColor((verifyPrevColor = true)),
+              console.log(userDataArray),
+              // alert(userDataArray)
+              setPreColor(color);
             }}
           >
             Save
