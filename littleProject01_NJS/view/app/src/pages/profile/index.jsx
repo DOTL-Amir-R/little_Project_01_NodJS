@@ -3,15 +3,76 @@ import test02Profile from "../../assets/img/second-icon.jpg";
 import companyLogo from "../../assets/img/company-logo.png";
 import {  Radio } from "pretty-checkbox-react";
 import { HexColorPicker } from "react-colorful";
+import styled from "styled-components";
 import "@djthoms/pretty-checkbox";
 import { useState } from "react";
 import "./index.css";
 
 
 export function Profile() {
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("red");
   const [state , setState] = useState(false)
   const [ifSaved , setSave] = useState(true)
+  const FirstVerticalLine=styled.div`
+
+  &::before{
+    padding: 4rem 0;
+    background: ${color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    left: 24rem;
+    border: 1px solid ${color};
+    content: '';
+    display: block;
+  }
+&::after{
+    padding: 8rem 0;
+    background: ${color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    right: 61rem;
+    border: 1px solid ${color};
+    content: '';
+    display: block;
+}
+`
+const SecondVerticalLine= styled.div`
+  &::before{
+    padding: 4rem 0;
+    background: rgb(0, 0, 0);
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    left: 23rem;
+    border: 1px solid rgb(0, 0, 0);
+    content: '';
+    display: block;
+}
+&::after{
+  padding: 6rem 0;
+  background: rgb(0, 0, 0);
+  width: 150%;
+  rotate: 45deg;
+  position: relative;
+  right: 56rem;
+  border: 1px solid rgb(0, 0, 0);
+  content: '';
+  display: block;
+}`
+const ThirdVerticlLine= styled.div`
+&::after{
+    padding: 6rem 0;
+    background: ${color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    right: 51rem;
+    border: 1px solid ${color};
+    content: '';
+    display: block;
+}`
   return (
     <div className="height-100vh over-flow-hidden">
       <div className="change-info-container" style={{top: ifSaved?'-48rem':'0rem' , transition:'all .6s'}} onClick={(e)=>{
@@ -80,9 +141,9 @@ export function Profile() {
           </button>
         </div>
       </div>
-      <div className="box-test">
-        <div className="box-test02">
-          <div className="box-test03">
+        <FirstVerticalLine>
+            <SecondVerticalLine>
+           <ThirdVerticlLine>
             <div className="main-container display-flex justify-center   items-center ">
               <div className=" icon-profile-container margin-right-155 display-flex items-center flex-direction-col ">
                 <img
@@ -122,9 +183,9 @@ export function Profile() {
                 My Inputs
               </button>
             </div>
-          </div>
-        </div>
-      </div>
+            </ThirdVerticlLine>
+          </SecondVerticalLine>
+          </FirstVerticalLine>
     </div>
   );
 }
