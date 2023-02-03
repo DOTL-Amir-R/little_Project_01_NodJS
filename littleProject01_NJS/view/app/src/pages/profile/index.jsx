@@ -55,7 +55,8 @@ const SecondVerticalLine= styled.div`
   border: 1px solid rgb(0, 0, 0);
   content: '';
   display: block;
-}`
+}
+`
 const ThirdVerticlLine= styled.div`
 &::after{
     padding: 6rem 0;
@@ -67,12 +68,15 @@ const ThirdVerticlLine= styled.div`
     border: 1px solid ${props => props.color};
     content: '';
     display: block;
-}`
+}
+`
 
 export function Profile() {
+  const [preColor , setPreColor] = useState('red')
   const [color, setColor] = useState("red");
   const [state , setState] = useState(false)
   const [ifSaved , setSave] = useState(true)
+  let [verifyPrevColor,setVerifyPrevColor] = useState(false);
 
 
   return (
@@ -137,15 +141,15 @@ export function Profile() {
 
           <button
             className="pink-button width-100-percent"
-            onClick={()=>{setSave(!ifSaved)}}
+            onClick={()=>{setSave(!ifSaved),setVerifyPrevColor(verifyPrevColor = true),console.log(verifyPrevColor),setPreColor(color)}}
           >
             Save
           </button>
         </div>
       </div>
-        <FirstVerticalLine color={color}>
+        <FirstVerticalLine color={verifyPrevColor?color:preColor}>
             <SecondVerticalLine>
-           <ThirdVerticlLine color={color}>
+           <ThirdVerticlLine color={verifyPrevColor?color:preColor}>
             <div className="main-container display-flex justify-center   items-center ">
               <div className=" icon-profile-container margin-right-155 display-flex items-center flex-direction-col ">
                 <img
@@ -181,7 +185,7 @@ export function Profile() {
                   </div>
                 </div>
               </div>
-              <button className="pink-button custom-class-button-profile-page z-index-6" onClick={()=>{setSave(!ifSaved)}} >
+              <button className="pink-button custom-class-button-profile-page z-index-6" onClick={()=>{setSave(!ifSaved),setVerifyPrevColor(verifyPrevColor = false)}} >
                 My Inputs
               </button>
             </div>
