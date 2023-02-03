@@ -1,40 +1,46 @@
 import testProfile from "../../assets/img/first-icon.jpg";
 import test02Profile from "../../assets/img/second-icon.jpg";
 import companyLogo from "../../assets/img/company-logo.png";
-import {  Radio } from "pretty-checkbox-react";
+import { Radio } from "pretty-checkbox-react";
 import { HexColorPicker } from "react-colorful";
 import styled from "styled-components";
 import "@djthoms/pretty-checkbox";
 import { useState } from "react";
 import "./index.css";
-
-const FirstVerticalLine=styled.div`
-
-&::before{
-  padding: 4rem 0;
-  background: ${props => props.color};
-  width: 150%;
-  rotate: 45deg;
-  position: relative;
-  left: 24rem;
-  border: 1px solid ${props => props.color};
-  content: '';
-  display: block;
-}
-&::after{
-  padding: 8rem 0;
-  background: ${props => props.color};
-  width: 150%;
-  rotate: 45deg;
-  position: relative;
-  right: 61rem;
-  border: 1px solid ${props => props.color};
-  content: '';
-  display: block;
-}
-`
-const SecondVerticalLine= styled.div`
-  &::before{
+const UserProfileStyle = styled.img`
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  border: 3px solid ${(props) => props.color};
+  border-top-color: transparent;
+  border-right-color: transparent;
+`;
+const FirstVerticalLine = styled.div`
+  &::before {
+    padding: 4rem 0;
+    background: ${(props) => props.color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    left: 24rem;
+    border: 1px solid ${(props) => props.color};
+    content: "";
+    display: block;
+  }
+  &::after {
+    padding: 8rem 0;
+    background: ${(props) => props.color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    right: 61rem;
+    border: 1px solid ${(props) => props.color};
+    content: "";
+    display: block;
+  }
+`;
+const SecondVerticalLine = styled.div`
+  &::before {
     padding: 4rem 0;
     background: rgb(0, 0, 0);
     width: 150%;
@@ -42,58 +48,69 @@ const SecondVerticalLine= styled.div`
     position: relative;
     left: 23rem;
     border: 1px solid rgb(0, 0, 0);
-    content: '';
+    content: "";
     display: block;
-}
-&::after{
-  padding: 6rem 0;
-  background: rgb(0, 0, 0);
-  width: 150%;
-  rotate: 45deg;
-  position: relative;
-  right: 56rem;
-  border: 1px solid rgb(0, 0, 0);
-  content: '';
-  display: block;
-}
-`
-const ThirdVerticlLine= styled.div`
-&::after{
+  }
+  &::after {
     padding: 6rem 0;
-    background: ${props => props.color};
+    background: rgb(0, 0, 0);
     width: 150%;
     rotate: 45deg;
     position: relative;
-    right: 51rem;
-    border: 1px solid ${props => props.color};
-    content: '';
+    right: 58rem;
+    border: 1px solid rgb(0, 0, 0);
+    content: "";
     display: block;
-}
-`
+  }
+`;
+const ThirdVerticlLine = styled.div`
+  &::after {
+    padding: 6rem 0;
+    background: ${(props) => props.color};
+    width: 150%;
+    rotate: 45deg;
+    position: relative;
+    right: 56rem;
+    border: 1px solid ${(props) => props.color};
+    content: "";
+    display: block;
+  }
+`;
 
 export function Profile() {
-  const [preColor , setPreColor] = useState('red')
+  const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
-  const [state , setState] = useState(false)
-  const [ifSaved , setSave] = useState(true)
-  let [verifyPrevColor,setVerifyPrevColor] = useState(false);
-
+  const [state, setState] = useState(false);
+  const [ifSaved, setSave] = useState(true);
+  let [verifyPrevColor, setVerifyPrevColor] = useState(false);
 
   return (
     <div className="height-100vh over-flow-hidden">
-      <div className="change-info-container" style={{top: ifSaved?'-48rem':'0rem' , transition:'all .6s'}} onClick={(e)=>{
-        if(e.target.className === 'change-info-container'){e.target.style.top = '-48rem'}
-        }}>
+      <div
+        className="change-info-container"
+        style={{ top: ifSaved ? "-48rem" : "0rem", transition: "all .6s" }}
+        onClick={(e) => {
+          if (e.target.className === "change-info-container") {
+            e.target.style.top = "-48rem";
+          }
+        }}
+      >
         <div className="change-info-inputs-container display-flex flex-direction-col items-start gap-16">
           <div>Choose Your Prefer</div>
           <div>gg</div>
-          <div className="hex-color-changer " style={{display:state? 'flex' : 'none'}}>
-            <HexColorPicker color={color}  onChange={setColor} />
+          <div
+            className="hex-color-changer "
+            style={{ display: state ? "flex" : "none" }}
+          >
+            <HexColorPicker color={color} onChange={setColor} />
           </div>
-          <button  style={{background: color,padding:'1rem'}} onClick={()=>{
-            setState(!state)
-            console.log(state)
-            }}/>
+          <button
+            style={{ background: color, padding: "1rem" }}
+            onClick={() => {
+              setState(!state);
+              console.log(state);
+            }}
+          />
           <input
             className="width-100-percent padd-8"
             placeholder="username"
@@ -127,7 +144,6 @@ export function Profile() {
                 alt="firstIcon"
               />
               <Radio name="a" shape="round" color="primary" />
-
             </figure>
             <figure>
               <img
@@ -141,18 +157,24 @@ export function Profile() {
 
           <button
             className="pink-button width-100-percent"
-            onClick={()=>{setSave(!ifSaved),setVerifyPrevColor(verifyPrevColor = true),console.log(verifyPrevColor),setPreColor(color)}}
+            onClick={() => {
+              setSave(!ifSaved),
+                setVerifyPrevColor((verifyPrevColor = true)),
+                console.log(verifyPrevColor),
+                setPreColor(color);
+            }}
           >
             Save
           </button>
         </div>
       </div>
-        <FirstVerticalLine color={verifyPrevColor?color:preColor}>
-            <SecondVerticalLine>
-           <ThirdVerticlLine color={verifyPrevColor?color:preColor}>
+      <FirstVerticalLine color={verifyPrevColor ? color : preColor}>
+        <SecondVerticalLine>
+          <ThirdVerticlLine color={verifyPrevColor ? color : preColor}>
             <div className="main-container display-flex justify-center   items-center ">
               <div className=" icon-profile-container margin-right-155 display-flex items-center flex-direction-col ">
-                <img
+                <UserProfileStyle
+                  color={verifyPrevColor ? color : preColor}
                   className="user-profile z-index-6"
                   src={testProfile}
                   alt="firstIcon"
@@ -185,13 +207,19 @@ export function Profile() {
                   </div>
                 </div>
               </div>
-              <button className="pink-button custom-class-button-profile-page z-index-6" onClick={()=>{setSave(!ifSaved),setVerifyPrevColor(verifyPrevColor = false)}} >
+              <button
+                className="pink-button custom-class-button-profile-page z-index-6"
+                onClick={() => {
+                  setSave(!ifSaved),
+                    setVerifyPrevColor((verifyPrevColor = false));
+                }}
+              >
                 My Inputs
               </button>
             </div>
-            </ThirdVerticlLine>
-          </SecondVerticalLine>
-          </FirstVerticalLine>
+          </ThirdVerticlLine>
+        </SecondVerticalLine>
+      </FirstVerticalLine>
     </div>
   );
 }

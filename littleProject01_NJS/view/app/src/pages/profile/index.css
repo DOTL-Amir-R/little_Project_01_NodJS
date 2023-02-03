@@ -29,61 +29,6 @@
     top: 0rem;
     z-index: 8;
 }
-.box-test02::before{
-    padding: 4rem 0;
-    background: rgb(0, 0, 0);
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    left: 23rem;
-    border: 1px solid rgb(0, 0, 0);
-    content: '';
-    display: block;
-}
-.box-test::before{
-    padding: 4rem 0;
-    background: red;
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    left: 24rem;
-    border: 1px solid red;
-    content: '';
-    display: block;
-}
-.box-test::after{
-    padding: 8rem 0;
-    background: red;
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    right: 61rem;
-    border: 1px solid red;
-    content: '';
-    display: block;
-}
-.box-test02::after{
-    padding: 6rem 0;
-    background: rgb(0, 0, 0);
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    right: 56rem;
-    border: 1px solid rgb(0, 0, 0);
-    content: '';
-    display: block;
-}
-.box-test03::after{
-    padding: 6rem 0;
-    background: rgb(255, 0, 0);
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    right: 51rem;
-    border: 1px solid red;
-    content: '';
-    display: block;
-}
 .first-profile{
     width: 9rem;
     height: 9rem;
@@ -93,9 +38,6 @@
     width: 15rem;
     height: 15rem;
     border-radius: 50%;
-    border: 3px solid #F45CB8;
-    border-top-color: transparent;
-    border-right-color: transparent;
 }
 .company-main-logo{
     margin: -50px -160px 0 0px;
