@@ -8,34 +8,29 @@ import "@djthoms/pretty-checkbox";
 import { useState } from "react";
 import "./index.css";
 
+const FirstVerticalLine=styled.div`
 
-export function Profile() {
-  const [color, setColor] = useState("red");
-  const [state , setState] = useState(false)
-  const [ifSaved , setSave] = useState(true)
-  const FirstVerticalLine=styled.div`
-
-  &::before{
-    padding: 4rem 0;
-    background: ${color};
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    left: 24rem;
-    border: 1px solid ${color};
-    content: '';
-    display: block;
-  }
+&::before{
+  padding: 4rem 0;
+  background: ${props => props.color};
+  width: 150%;
+  rotate: 45deg;
+  position: relative;
+  left: 24rem;
+  border: 1px solid ${props => props.color};
+  content: '';
+  display: block;
+}
 &::after{
-    padding: 8rem 0;
-    background: ${color};
-    width: 150%;
-    rotate: 45deg;
-    position: relative;
-    right: 61rem;
-    border: 1px solid ${color};
-    content: '';
-    display: block;
+  padding: 8rem 0;
+  background: ${props => props.color};
+  width: 150%;
+  rotate: 45deg;
+  position: relative;
+  right: 61rem;
+  border: 1px solid ${props => props.color};
+  content: '';
+  display: block;
 }
 `
 const SecondVerticalLine= styled.div`
@@ -64,15 +59,22 @@ const SecondVerticalLine= styled.div`
 const ThirdVerticlLine= styled.div`
 &::after{
     padding: 6rem 0;
-    background: ${color};
+    background: ${props => props.color};
     width: 150%;
     rotate: 45deg;
     position: relative;
     right: 51rem;
-    border: 1px solid ${color};
+    border: 1px solid ${props => props.color};
     content: '';
     display: block;
 }`
+
+export function Profile() {
+  const [color, setColor] = useState("red");
+  const [state , setState] = useState(false)
+  const [ifSaved , setSave] = useState(true)
+
+
   return (
     <div className="height-100vh over-flow-hidden">
       <div className="change-info-container" style={{top: ifSaved?'-48rem':'0rem' , transition:'all .6s'}} onClick={(e)=>{
@@ -141,9 +143,9 @@ const ThirdVerticlLine= styled.div`
           </button>
         </div>
       </div>
-        <FirstVerticalLine>
+        <FirstVerticalLine color={color}>
             <SecondVerticalLine>
-           <ThirdVerticlLine>
+           <ThirdVerticlLine color={color}>
             <div className="main-container display-flex justify-center   items-center ">
               <div className=" icon-profile-container margin-right-155 display-flex items-center flex-direction-col ">
                 <img
