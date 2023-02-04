@@ -83,7 +83,8 @@ export function Profile() {
     number:'',
     email:'',
     website:'',
-    addrese:''
+    addrese:'',
+    profileImage:'',
 });
   const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
@@ -155,7 +156,7 @@ export function Profile() {
                 src={testProfile}
                 alt="firstIcon"
               />
-              <Radio name="a" shape="round" color="primary" />
+              <Radio name="a" shape="round" color="primary" onClick={(e)=>{userDataArray.profileImage= testProfile ,console.log(userDataArray)}} />
             </figure>
             <figure>
               <img
@@ -163,7 +164,7 @@ export function Profile() {
                 src={test02Profile}
                 alt="firstIcon"
               />
-              <Radio name="a" shape="round" color="primary" />
+              <Radio name="a" shape="round" color="primary" onClick={(e)=>{userDataArray.profileImage= test02Profile ,console.log(userDataArray)}} />
             </figure>
           </div>
 
