@@ -178,6 +178,7 @@ export function Profile() {
               setVerifyPrevColor((verifyPrevColor = true)),
               console.log(userDataArray),
               // alert(userDataArray)
+              userDataArray.color = color
               setPreColor(color);
               axios({
                 method: 'post',
