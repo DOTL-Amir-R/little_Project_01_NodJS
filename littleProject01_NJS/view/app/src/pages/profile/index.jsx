@@ -7,6 +7,8 @@ import styled from "styled-components";
 import "@djthoms/pretty-checkbox";
 import { useState } from "react";
 import "./index.css";
+import axios from "axios"
+
 const UserProfileStyle = styled.img`
   width: 15rem;
   height: 15rem;
@@ -85,6 +87,7 @@ export function Profile() {
     website:'',
     addrese:'',
     profileImage:'',
+    color:''
 });
   const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
@@ -170,12 +173,20 @@ export function Profile() {
 
           <button
             className="pink-button width-100-percent"
-            onClick={() => {
+            onClick={async() => {
               setSave(!ifSaved),
               setVerifyPrevColor((verifyPrevColor = true)),
               console.log(userDataArray),
               // alert(userDataArray)
               setPreColor(color);
+              axios({
+                method: 'post',
+                url: 'http://localhost:3000/api/saveUserInfo',
+                data: {
+                  userDataArray
+                }
+              });
+
             }}
           >
             Save
