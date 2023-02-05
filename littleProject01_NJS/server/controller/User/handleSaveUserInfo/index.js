@@ -1,7 +1,25 @@
 const bcrypt = require("bcrypt");
-const { UserInfo } = require("../../model/User");
+const { UserInfo } = require("../../../model/User");
 
 module.exports.handleSaveUserInfo = async (req, res) => {
+  if(!req?.body?.userDataArray?.username){
+    res.status(400).json({'message':'sorry you should write your username'})
+  }
+  if(!req?.body?.userDataArray?.number){
+    res.status(400).json({'message':'sorry you should write your number'})
+  }
+  if(!req?.body?.userDataArray?.email){
+    res.status(400).json({'message':'sorry you should write your email'})
+  }
+  if(!req?.body?.userDataArray?.website){
+    res.status(400).json({'message':'sorry you should write your website'})
+  }
+  if(!req?.body?.userDataArray?.addrese){
+    res.status(400).json({'message':'sorry you should write your addrese'})
+  }
+  if(!req?.body?.userDataArray?.profileImage){
+    res.status(400).json({'message':'sorry you should select your profileImage'})
+  }
   // console.log(req.body.userDataArray.username)
   const newUserInfo = new UserInfo({
     username: req.body.userDataArray.username,

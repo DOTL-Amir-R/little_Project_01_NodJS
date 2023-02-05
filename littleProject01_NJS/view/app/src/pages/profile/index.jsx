@@ -5,7 +5,7 @@ import { Radio } from "pretty-checkbox-react";
 import { HexColorPicker } from "react-colorful";
 import styled from "styled-components";
 import "@djthoms/pretty-checkbox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 import axios from "axios"
 
@@ -80,6 +80,7 @@ const ThirdVerticlLine = styled.div`
 `;
 
 export function Profile() {
+
   const [userDataArray,setUserDataArray]=useState({
     username:'',
     number:'',
@@ -89,12 +90,14 @@ export function Profile() {
     profileImage:'',
     color:''
 });
+
+
   const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
   const [state, setState] = useState(false);
   const [ifSaved, setSave] = useState(true);
   let [verifyPrevColor, setVerifyPrevColor] = useState(false);
-
+ 
   return (
     <div className="height-100vh over-flow-hidden">
       <div
@@ -213,23 +216,23 @@ export function Profile() {
               </div>
               <div className="info-text-container display-flex items-center flex-direction-col z-index-6">
                 <div className="font-size-32 font-weight-bold padding-bot-16 ">
-                  PHIL Janet anderson
+                  {verifyPrevColor? userDataArray.username:'PHIL Janet anderson'}
                 </div>
                 <div className="font-size-22 font-weight-400 padding-bot-32">
                   Sales Representative
                 </div>
                 <div className="more-info-container display-flex flex-direction-col">
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    +123-456-789
+                    {verifyPrevColor? userDataArray.number:'+123-456-789'}
                   </div>
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    Hello@reallygreatsite.com
+                    {verifyPrevColor? userDataArray.email:'Hello@reallygreatsite.com'}
                   </div>
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    www.reallygreatsite.com
+                    {verifyPrevColor? userDataArray.website:'www.reallygreatsite.com'}
                   </div>
                   <div className="padding-top-16">
-                    123 AnyWhere st., Any City, st 1234
+                    {verifyPrevColor? userDataArray.addrese:'123 AnyWhere st., Any City, st 1234'}
                   </div>
                 </div>
               </div>

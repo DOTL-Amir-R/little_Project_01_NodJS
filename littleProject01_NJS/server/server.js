@@ -10,6 +10,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/littleNodeProject').then(
 server.use(cors())
 server.use(express.json({expanded:false}))
 server.use('/api',routesObject.saveUserInfo)
+server.use('/api',routesObject.getUserInfo)
 
 server.listen(3000, ()=>{console.log('server is runing')})
 
