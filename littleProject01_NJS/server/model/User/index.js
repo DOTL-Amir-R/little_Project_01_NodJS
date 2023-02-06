@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const scheme = {
+    userId:{type:String},
     username:{type:String,require:true},
     number:{type:String,require:true},
     email:{type:String,require:true},

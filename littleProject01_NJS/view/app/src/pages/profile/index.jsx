@@ -6,6 +6,7 @@ import { HexColorPicker } from "react-colorful";
 import styled from "styled-components";
 import "@djthoms/pretty-checkbox";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import "./index.css";
 import axios from "axios"
 
@@ -82,6 +83,7 @@ const ThirdVerticlLine = styled.div`
 export function Profile() {
 
   const [userDataArray,setUserDataArray]=useState({
+    userId:'1',
     username:'',
     number:'',
     email:'',
@@ -90,14 +92,40 @@ export function Profile() {
     profileImage:'',
     color:''
 });
-
-
   const [preColor, setPreColor] = useState("red");
   const [color, setColor] = useState("red");
   const [state, setState] = useState(false);
   const [ifSaved, setSave] = useState(true);
+  const { register, handleSubmit } = useForm();
   let [verifyPrevColor, setVerifyPrevColor] = useState(false);
- 
+
+  const getAxiosUserInfo=async()=>{
+    const response = await axios.get('http://localhost:3000/api/getUserInfo')
+    // userDataArray.username=response.data.message.username
+    // userDataArray.number=response.data.message.number
+    // userDataArray.email=response.data.message.email
+    // userDataArray.website=response.data.message.website
+    // userDataArray.addrese=response.data.message.addrese
+    // userDataArray.profileImage=response.data.message.profileImage
+    // userDataArray.color=response.data.message.color
+    await setUserDataArray({
+      username:response.data.message.username,
+      number:response.data.message.number,
+      email:response.data.message.email,
+      website:response.data.message.website,
+      addrese:response.data.message.addrese,
+      profileImage:response.data.message.profileImage,
+      color:response.data.message.color,
+    })
+    setPreColor(response.data.message.color)
+     
+    
+  }
+
+  useEffect(()=>{
+    getAxiosUserInfo()
+  },[])
+  console.log(userDataArray)
   return (
     <div className="height-100vh over-flow-hidden">
       <div
@@ -205,7 +233,7 @@ export function Profile() {
                 <UserProfileStyle
                   color={verifyPrevColor ? color : preColor}
                   className="user-profile z-index-6"
-                  src={testProfile}
+                  src={userDataArray.profileImage}
                   alt="firstIcon"
                 />
                 <img
@@ -216,23 +244,23 @@ export function Profile() {
               </div>
               <div className="info-text-container display-flex items-center flex-direction-col z-index-6">
                 <div className="font-size-32 font-weight-bold padding-bot-16 ">
-                  {verifyPrevColor? userDataArray.username:'PHIL Janet anderson'}
+                  { userDataArray.username}
                 </div>
                 <div className="font-size-22 font-weight-400 padding-bot-32">
                   Sales Representative
                 </div>
                 <div className="more-info-container display-flex flex-direction-col">
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    {verifyPrevColor? userDataArray.number:'+123-456-789'}
+                    { userDataArray.number}
                   </div>
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    {verifyPrevColor? userDataArray.email:'Hello@reallygreatsite.com'}
+                    { userDataArray.email}
                   </div>
                   <div className="padding-bot-16 padding-top-16 border-bot-1px-black">
-                    {verifyPrevColor? userDataArray.website:'www.reallygreatsite.com'}
+                    { userDataArray.website}
                   </div>
                   <div className="padding-top-16">
-                    {verifyPrevColor? userDataArray.addrese:'123 AnyWhere st., Any City, st 1234'}
+                    { userDataArray.addrese}
                   </div>
                 </div>
               </div>

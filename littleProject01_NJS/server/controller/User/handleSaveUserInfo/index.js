@@ -22,6 +22,7 @@ module.exports.handleSaveUserInfo = async (req, res) => {
   }
   // console.log(req.body.userDataArray.username)
   const newUserInfo = new UserInfo({
+    userId:req.body.userDataArray.userId,
     username: req.body.userDataArray.username,
     number: req.body.userDataArray.number,
     email: req.body.userDataArray.email,
@@ -31,12 +32,10 @@ module.exports.handleSaveUserInfo = async (req, res) => {
     color: req.body.userDataArray.color,
   });
   // await newUserInfo.replaceOne({email:req.body.userDataArray.email})
-   UserInfo.findOne({username:req.body.userDataArray.username},async (err,res)=>{
-      if(err){
-        console.log(err)
-      }else{
-          
-        return await UserInfo.updateOne({ username: req.body.userDataArray.username }, {
+   UserInfo.findOne({userId:'1'},async (err,res)=>{
+      if(res){                 
+        return await UserInfo.updateOne({ userId: '1' }, {
+            username: req.body.userDataArray.username,
             number: req.body.userDataArray.number,
             email: req.body.userDataArray.email,
             website: req.body.userDataArray.website,
@@ -46,9 +45,10 @@ module.exports.handleSaveUserInfo = async (req, res) => {
           });
         //   console.log(UserInfo+'res')
       }
+      console.log(req.body.userDataArray.userId)
       await newUserInfo.save()
   })
-    ;
+
   res.status(200).json({
       message: "your information for profile has been edited and saved",
     });
