@@ -101,13 +101,6 @@ export function Profile() {
 
   const getAxiosUserInfo=async()=>{
     const response = await axios.get('http://localhost:3000/api/getUserInfo')
-    // userDataArray.username=response.data.message.username
-    // userDataArray.number=response.data.message.number
-    // userDataArray.email=response.data.message.email
-    // userDataArray.website=response.data.message.website
-    // userDataArray.addrese=response.data.message.addrese
-    // userDataArray.profileImage=response.data.message.profileImage
-    // userDataArray.color=response.data.message.color
     await setUserDataArray({
       username:response.data.message.username,
       number:response.data.message.number,
@@ -121,11 +114,9 @@ export function Profile() {
      
     
   }
-
   useEffect(()=>{
     getAxiosUserInfo()
   },[])
-  console.log(userDataArray)
   return (
     <div className="height-100vh over-flow-hidden">
       <div
